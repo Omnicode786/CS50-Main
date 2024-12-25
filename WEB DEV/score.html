@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ffffff, #eb5701);
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            animation: fadeIn 3s ease-in-out;
+            color: white;
+            -webkit-text-stroke: 1px rgb(0, 0, 0);
+        }
+
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(138, 131, 131, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2670d1;
+        }
+
+        button:disabled {
+            background-color: #ff0000;
+            cursor: not-allowed;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 2.2rem;
+            color: antiquewhite;
+            margin-top: 20px;
+            animation: bounceIn 1s ease-out;
+            
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Left Team vs Right Team</h1>
+    </header>
+    <main>
+        <table>
+            <p id="result">Hello</p>
+            <tr>
+                <td>Team 1</td>
+                <td>Team 2</td>
+            </tr>
+            <tr>
+                <td id="score1">0</td>
+                <td id="score2">0</td>
+            </tr>
+            <tr>
+                <td><button id="add1">+1</button></td>
+                <td><button id="add2">+1</button></td>
+            </tr>
+        </table>
+    </main>
+    <script>
+        let team1 = 0;
+        let team2 = 0;
+
+        document.querySelector('#add1').onclick = function() {
+            team1 = team1 + 1;
+            document.querySelector('#score1').innerHTML = team1;
+            if (team1 > team2) {
+                document.querySelector('#result').innerHTML = "Team 1 is in the lead!";
+                if (team1 == 20) {
+                    document.querySelector('#result').innerHTML = "Team 1 won!";
+                    document.querySelector('#add1').disabled = true;
+                    document.querySelector('#add2').disabled = true;
+                }
+            }
+        };
+
+        document.querySelector('#add2').onclick = function() {
+            team2 = team2 + 1;
+            document.querySelector('#score2').innerHTML = team2;
+            if (team2 > team1) {
+                document.querySelector('#result').innerHTML = "Team 2 is in the lead!";
+                if (team2 == 20) {
+                    document.querySelector('#result').innerHTML = "Team 2 won!";
+                    document.querySelector('#add1').disabled = true;
+                    document.querySelector('#add2').disabled = true;
+                }
+            }
+        };
+    </script>
+</body>
+</html>

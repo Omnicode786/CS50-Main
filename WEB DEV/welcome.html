@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Invitation 2k24</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background: linear-gradient(135deg, #222121 0%, #1b1b1b 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            background-color: rgb(63, 60, 60);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(196, 190, 190, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fdfdfd;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            
+        }
+        h2:hover
+        {
+            transition: 0.3s ease-in;
+            transform: scale(1.2);
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #3b8e3b;
+        }
+
+        #no-btn {
+            background-color: #f44336;
+            padding-right: 40px;
+            position: absolute;
+
+            transition: all 0.5s ease-in-out; /* Smooth movement */
+        }
+
+        #no-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        #message {
+            font-size: 1.8rem;
+            color: #0ae912;
+            
+            -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome Party 2k24</h1>
+        <h2>Are you comng to the beast of all beasts, goat of all goats party of the year?</h2>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const message = document.getElementById('message');
+        
+        // Handle Yes button click
+        yesBtn.addEventListener('click', function() {
+            document.querySelector('#message').innerHTML = "COngrats your presence will be appreciated"
+            message.style.opacity = 1;
+            message.style.transform = 'scale(1)';
+        });
+
+        noBtn.addEventListener('mouseover', function() {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const buttonWidth = noBtn.offsetWidth;
+            const buttonHeight = noBtn.offsetHeight;
+
+            const randomX = Math.random() * (viewportWidth - buttonWidth);
+            const randomY = Math.random() * (viewportHeight - buttonHeight);
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+        
+        noBtn.addEventListener('click', function() {
+            document.querySelector('#message').innerHTML = "You have a very sad loif"
+            message.style.opacity = 1;
+            message.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
